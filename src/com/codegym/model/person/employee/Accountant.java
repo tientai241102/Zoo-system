@@ -8,7 +8,7 @@ public class Accountant extends Employee {
     private double totalRevenue;
 
     public Accountant(String name, String streetAddress, String city, String country, GenderPerson gender, int age, String employeeId, String jobPosition, double salary) {
-        super(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary);
+        super(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary,"Accountant");
         this.totalRevenue = 0.0;
     }
 

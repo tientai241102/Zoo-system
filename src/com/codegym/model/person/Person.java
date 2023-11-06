@@ -9,6 +9,7 @@ public class Person {
     private GenderPerson gender;
     private int age;
 
+
     public GenderPerson getGender() {
         return gender;
     }

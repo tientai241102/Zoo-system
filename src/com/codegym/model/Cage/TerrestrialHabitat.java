@@ -9,8 +9,8 @@ public class TerrestrialHabitat extends Cage implements Habitat {
     private final int height;
     private CleanlinessEnclosure cleanlinessRoof;
 
-    public TerrestrialHabitat(String name, double area, int maxAnimals, int height) {
-        super(name, area, maxAnimals);
+    public TerrestrialHabitat(String id,String name, double area, int maxAnimals, int height, String employeeId) {
+        super(id,name, area, maxAnimals,employeeId,"TerrestrialHabitat");
         if (height <= 0) {
             throw new IllegalArgumentException("Chiều cao của chuồng phải lớn hơn 0.");
         }

@@ -9,7 +9,6 @@ import java.util.List;
 public class EmployeeService {
 
 
-    private static EmployeeService employeeService;
 
     private EmployeeRepository employeeRepository = new EmployeeRepository();
     public List<Employee> getEmployees(){

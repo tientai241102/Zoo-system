@@ -7,7 +7,6 @@ import java.util.List;
 
 public class AnimalService {
 
-    private static AnimalService animalService;
 
 
     private AnimalRepository animalRepository = new AnimalRepository();

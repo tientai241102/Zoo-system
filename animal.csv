@@ -1,0 +1,2 @@
+Id,Name,Species,Weight,size,age,heal,gender,isHungry,cageId,foodPlanQuantity,foodPlanItem,typeAnimal
+1,test1,test2,24.0,24.0,255,GOOD,FEMALE,true,null,,,Dolphin

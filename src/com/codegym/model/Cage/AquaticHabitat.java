@@ -8,8 +8,8 @@ public class AquaticHabitat extends Cage implements Habitat {
     private final int deepness;
     private double salinity;
 
-    public AquaticHabitat(String name, double area, int maxAnimals, int deepness) {
-        super(name, area, maxAnimals);
+    public AquaticHabitat(String id,String name, double area, int maxAnimals, int deepness, String employeeId) {
+        super(id,name, area, maxAnimals,employeeId,"AquaticHabitat");
         if (deepness <= 0) {
             throw new IllegalArgumentException("Độ sâu của chuồng phải lớn hơn 0.");
         }

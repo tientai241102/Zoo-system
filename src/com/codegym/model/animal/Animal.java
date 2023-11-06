@@ -16,9 +16,20 @@ public abstract class Animal implements Serializable {
     private HealAnimals heal;
     private GenderAnimals gender;
     private boolean isHungry;
+
+    private String cageId;
+
     private FoodPlan foodPlan;
 
     private String typeAnimal;
+
+    public String getCageId() {
+        return cageId;
+    }
+
+    public void setCageId(String cageId) {
+        this.cageId = cageId;
+    }
 
     public double getWeight() {
         return weight;
@@ -139,6 +150,7 @@ public abstract class Animal implements Serializable {
                 ", heal=" + heal +
                 ", gender=" + gender +
                 ", isHungry=" + isHungry +
+                ", cageId='" + cageId + '\'' +
                 ", foodPlan=" + foodPlan +
                 ", typeAnimal='" + typeAnimal + '\'' +
                 '}';

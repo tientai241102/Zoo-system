@@ -1,6 +1,8 @@
 package com.codegym.repository;
 
 import com.codegym.model.animal.Animal;
+import com.codegym.serializer.ReadAnimalSerializer;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +18,12 @@ public class AnimalRepository {
 
     public void addAnimal(Animal animal) {
         animals.add(animal);
+        updateFileCSV();
     }
 
     public void removeAnimal(int animalId) {
         animals.removeIf(animal -> animal.getId() == animalId);
+        updateFileCSV();
     }
 
     public Animal findById(int animalId) {
@@ -49,8 +53,13 @@ public class AnimalRepository {
         for (int i = 0; i < animals.size(); i++) {
             if (animals.get(i).getId() == updatedAnimal.getId()) {
                 animals.set(i, updatedAnimal);
+                updateFileCSV();
                 return;
             }
         }
+    }
+    private void updateFileCSV(){
+        ReadAnimalSerializer readAnimalSerializer=    ReadAnimalSerializer.getInstanceReadAnimalSerializer();
+        readAnimalSerializer.writeToCSV(animals);
     }
 }
