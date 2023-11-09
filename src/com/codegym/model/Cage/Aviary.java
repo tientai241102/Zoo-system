@@ -33,4 +33,9 @@ public class Aviary extends Cage implements Habitat {
         }
         return animal instanceof FlyingAnimal;
     }
+
+    public int getHeight() {
+        return height;
+    }
+
 }

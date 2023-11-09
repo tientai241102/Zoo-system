@@ -38,6 +38,7 @@ public class AquaticHabitat extends Cage implements Habitat {
         return super.maintain();
     }
 
+
     @Override
     public boolean isCompatible(Animal animal) {
         if (animal == null) {

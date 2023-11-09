@@ -21,6 +21,14 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     public String getEmployeeId() {
         return employeeId;
     }

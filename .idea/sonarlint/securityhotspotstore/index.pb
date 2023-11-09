@@ -1,0 +1,25 @@
+
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+X
+(src/com/codegym/model/ticket/Ticket.java,d/a/da9878dbe3d4bdc3f5d83c4d174b8f8490c1f6e5
+]
+-src/com/codegym/model/ticket/ChildTicket.java,2/c/2c95664f26b2e99ff84b0f67ab2482c2f15b593e
+]
+-src/com/codegym/model/ticket/AdultTicket.java,b/f/bf6d3d518c0eda77b9d16e62e98eaef18343185e
+^
+.src/com/codegym/model/ticket/SeniorTicket.java,c/5/c512ca1a91cd48f612995839f3758d50804c3c4e
+a
+1src/com/codegym/model/person/visitors/Senior.java,d/b/dbf6f74c5b0e4f44c719e1aceeed539f8aabea52
+Z
+*src/com/codegym/service/AnimalService.java,e/4/e4087ef27d9e5ad4c6e9afcd4450a833b3f988db
+X
+(src/com/codegym/service/CageService.java,1/f/1f65212ae59bc18227700006acf27ce0ce830248
+j
+:src/com/codegym/model/person/enumerations/AgeCategory.java,a/3/a3f7cdfbfb1395964378f19fc16de28cd00e9229
+k
+;src/com/codegym/model/person/enumerations/GenderPerson.java,e/a/ea3e3fea47c9936bf34ddbc670892d84a0ae7a93
+[
++src/com/codegym/service/VisitorService.java,9/0/905ab4d2e1e0e140177512724a774e028a025485
+`
+0src/com/codegym/repository/AnimalManagement.java,b/a/ba96b9344168389df7ddf3d8a9e467f9ef7f3ba5

@@ -33,4 +33,8 @@ public class TerrestrialHabitat extends Cage implements Habitat {
         }
         return animal instanceof TerrestrialAnimal;
     }
+
+    public int getHeight() {
+        return height;
+    }
 }

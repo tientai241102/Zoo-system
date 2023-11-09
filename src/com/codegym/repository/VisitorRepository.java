@@ -1,6 +1,8 @@
 package com.codegym.repository;
 import com.codegym.model.person.enumerations.AgeCategory;
 import com.codegym.model.person.visitors.Visitor;
+import com.codegym.serializer.ReadCustomerSerializer;
+import com.codegym.serializer.ReadEmployeeSerializer;
 
 
 import java.util.ArrayList;
@@ -40,5 +42,10 @@ public class VisitorRepository {
                 return;
             }
         }
+    }
+
+    private void updateFileCSV(){
+        ReadCustomerSerializer readCustomerSerializer=    ReadCustomerSerializer.getInstanceReadCustomerSerializer();
+        readCustomerSerializer.writeToCSV(visitors);
     }
 }
