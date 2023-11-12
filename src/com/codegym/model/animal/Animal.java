@@ -60,7 +60,7 @@ public abstract class Animal implements Serializable {
         this.name = name;
     }
 
-    public Animal(int id, String name, String species, double weight, double size, int age, HealAnimals heal, GenderAnimals gender,String typeAnimal) {
+    public Animal(int id, String name, String species, double weight, double size, int age, HealAnimals heal, GenderAnimals gender,String typeAnimal, FoodPlan foodPlan,String cageId) {
         this.id = id;
         this.name = name;
         this.species = species;
@@ -70,7 +70,9 @@ public abstract class Animal implements Serializable {
         this.heal = heal;
         this.gender = gender;
         this.typeAnimal=typeAnimal;
+        this.foodPlan = foodPlan;
         this.isHungry = true;
+        this.cageId = cageId;
     }
 
     public String getName() {

@@ -21,14 +21,13 @@ import java.util.Scanner;
 
 public class OwnerFunction implements MainFunction {
 
-    AnimalService animalService = new AnimalService();
+    AnimalService animalService =  AnimalService.getAnimalService();
 
-    EmployeeService employeeService = new EmployeeService();
+    EmployeeService employeeService =  EmployeeService.getEmployeeService();
 
-    CageService cageService = new CageService();
+    CageService cageService = CageService.getCageService();
 
-    VisitorService visitorService = new VisitorService();
-
+    VisitorService visitorService = VisitorService.getVisitorService();
     @Override
     public void show() {
         System.out.println("=== MENU QUẢN LÝ OWNER ===");
@@ -110,66 +109,81 @@ public class OwnerFunction implements MainFunction {
     }
 
     public void menuManagerAnimal() {
-        System.out.println("=== MENU QUẢN LÝ THÚ ===");
-        System.out.println("1. Thêm/Chỉnh sửa thông tin thú");
-        System.out.println("2. Quản lý chế độ ăn");
-        System.out.println("3. Theo dõi sức khỏe");
-        System.out.println("4. Thoát về Menu chính");
-        Scanner scanner = new Scanner(System.in);
-        int inputMenuManagerAnimalSelected = scanner.nextInt();
-        switch (inputMenuManagerAnimalSelected) {
-            case 1:
-                menuAnimal();
-                break;
-            case 2:
-                System.out.println("2.Quản lý chế độ ăn");
-                break;
-            case 3:
-                System.out.println("3.Theo dõi sức khỏe");
-                break;
-            case 4:
-                System.out.println("4. Thoát về Menu chính");
+        while (true) {
+            System.out.println("=== MENU QUẢN LÝ THÚ ===");
+            System.out.println("1. Thêm/Chỉnh sửa thông tin thú");
+            System.out.println("2. Quản lý chế độ ăn");
+            System.out.println("3. Theo dõi sức khỏe");
+            System.out.println("4. Thoát về Menu chính");
+            Scanner scanner = new Scanner(System.in);
+            int inputMenuManagerAnimalSelected = scanner.nextInt();
+            switch (inputMenuManagerAnimalSelected) {
+                case 1:
+                    menuAnimal();
+                    break;
+                case 2:
+                    System.out.println("2.Quản lý chế độ ăn");
+                    break;
+                case 3:
+                    System.out.println("3.Theo dõi sức khỏe");
+                    break;
+                case 4:
+                    System.out.println("4. Thoát về Menu chính");
+                    return;
+            }
         }
     }
 
     public void menuManagerCage() {
-        System.out.println("=== MENU QUẢN CHUỒNG THÚ ===");
-        System.out.println("1. Xem  thông tin chuồng thú.");
-        System.out.println("2. Thêm  thông tin chuồng thú.");
-        System.out.println("3. Update thông tin chuồng thú.");
-        System.out.println("4. Thêm thú vào chuồng.");
-        System.out.println("5. Xoá thú ra khỏi chuồng.");
-        System.out.println("6. Xoá chuồng.");
-        System.out.println("7. Thoát về Menu chính");
-        Scanner scanner = new Scanner(System.in);
-        int inputMenuManagerCageSelected = scanner.nextInt();
-        switch (inputMenuManagerCageSelected) {
-            case 1:
-                for (Cage cage : cageService.getCages()) {
-                    System.out.println(cage);
-                }
-                break;
-            case 2:
-                cageService.addCage(getNewCage());
-                break;
-            case 3:
-                cageService.updateCage(getNewCage());
-                break;
-            case 4:
-                System.out.println("4. Thêm thú vào chuồng.");
-                break;
-            case 5:
-                System.out.println("5. Xoá thú ra khỏi chuồng.");
-                break;
-            case 6:
-                System.out.println("Id chuồng muốn xoá muốn xoá: ");
-                String inputCageDeleted = scanner.next();
-                employeeService.removeEmployee(inputCageDeleted);
-                System.out.println("Xoá nhân viên thành công.");
-                break;
-            case 7:
-                System.out.println("5. Thoát về Menu chính");
-                return;
+        while (true) {
+            System.out.println("=== MENU QUẢN CHUỒNG THÚ ===");
+            System.out.println("1. Xem  thông tin chuồng thú.");
+            System.out.println("2. Thêm  thông tin chuồng thú.");
+            System.out.println("3. Update thông tin chuồng thú.");
+            System.out.println("4. Thêm thú vào chuồng.");
+            System.out.println("5. Xoá thú ra khỏi chuồng.");
+            System.out.println("6. Xoá chuồng.");
+            System.out.println("7. Thoát về Menu chính");
+            Scanner scanner = new Scanner(System.in);
+            String cageId = null;
+            int animalId;
+            int inputMenuManagerCageSelected = scanner.nextInt();
+            switch (inputMenuManagerCageSelected) {
+                case 1:
+                    for (Cage cage : cageService.getCages()) {
+                        System.out.println(cage);
+                    }
+                    break;
+                case 2:
+                    cageService.addCage(getNewCage());
+                    break;
+                case 3:
+                    cageService.updateCage(getNewCage());
+                    break;
+                case 4:
+                    System.out.println("Nhập ID chuồng muốn thêm thú: ");
+                    cageId = scanner.next();
+                    System.out.println("Nhập thú id: ");
+                    animalId = scanner.nextInt();
+                    cageService.addAnimalForCage(cageId, animalId);
+                    break;
+                case 5:
+                    System.out.println("Nhập ID chuồng muốn xoá thú: ");
+                    cageId = scanner.next();
+                    System.out.println("Nhập thú id: ");
+                    animalId = scanner.nextInt();
+                    cageService.removeAnimalForCage(cageId, animalId);
+                    break;
+                case 6:
+                    System.out.println("Id chuồng muốn xoá: ");
+                    String inputCageDeleted = scanner.next();
+                    employeeService.removeEmployee(inputCageDeleted);
+                    System.out.println("Xoá nhân viên thành công.");
+                    break;
+                case 7:
+                    System.out.println("7. Thoát về Menu chính");
+                    return;
+            }
         }
     }
 
@@ -354,28 +368,28 @@ public class OwnerFunction implements MainFunction {
         GenderAnimals gender = GenderAnimals.valueOf(scanner.next());
         switch (inputAnimalSelected) {
             case 1:
-                animal = new Dolphin(id, name, species, weight, size, age, heal, gender);
+                animal = new Dolphin(id, name, species, weight, size, age, heal, gender,null,null);
                 break;
             case 2:
-                animal = new Eagle(id, name, species, weight, size, age, heal, gender);
+                animal = new Eagle(id, name, species, weight, size, age, heal, gender,null,null);
                 break;
             case 3:
-                animal = new Elephant(id, name, species, weight, size, age, heal, gender);
+                animal = new Elephant(id, name, species, weight, size, age, heal, gender,null,null);
                 break;
             case 4:
-                animal = new Lion(id, name, species, weight, size, age, heal, gender);
+                animal = new Lion(id, name, species, weight, size, age, heal, gender,null,null);
                 break;
             case 5:
-                animal = new Panda(id, name, species, weight, size, age, heal, gender);
+                animal = new Panda(id, name, species, weight, size, age, heal, gender,null,null);
                 break;
             case 6:
-                animal = new Seal(id, name, species, weight, size, age, heal, gender);
+                animal = new Seal(id, name, species, weight, size, age, heal, gender,null,null);
                 break;
             case 7:
-                animal = new Shark(id, name, species, weight, size, age, heal, gender);
+                animal = new Shark(id, name, species, weight, size, age, heal, gender,null,null);
                 break;
             case 8:
-                animal = new Zebra(id, name, species, weight, size, age, heal, gender);
+                animal = new Zebra(id, name, species, weight, size, age, heal, gender,null,null);
                 break;
         }
         return animal;

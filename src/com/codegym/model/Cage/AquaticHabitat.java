@@ -3,7 +3,7 @@ package com.codegym.model.Cage;
 import com.codegym.model.animal.Animal;
 import com.codegym.model.animal.interfaces.AquaticAnimal;
 
-public class AquaticHabitat extends Cage implements Habitat {
+public class AquaticHabitat extends Cage  {
 
     private final int deepness;
     private double salinity;
@@ -42,7 +42,7 @@ public class AquaticHabitat extends Cage implements Habitat {
     @Override
     public boolean isCompatible(Animal animal) {
         if (animal == null) {
-            throw new IllegalArgumentException("Chuồng phải chứa động vật.");
+            System.out.println("Chuồng phải chứa động vật.");
         }
         return animal instanceof AquaticAnimal;
     }

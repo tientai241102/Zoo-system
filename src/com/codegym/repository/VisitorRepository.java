@@ -13,9 +13,22 @@ public class VisitorRepository {
     private List<Visitor> visitors;
 
 
-    public VisitorRepository() {
-        visitors = new ArrayList<>();
+
+    private static VisitorRepository visitorRepository;
+
+    private VisitorRepository() {
+        this.visitors = new ArrayList<>();
     }
+
+    public static VisitorRepository getVisitorRepository(){
+        if (visitorRepository == null){
+            visitorRepository = new VisitorRepository();
+        }
+        return visitorRepository;
+    }
+
+
+
 
     public void addVisitor(Visitor visitor) {
         visitors.add(visitor);

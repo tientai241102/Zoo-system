@@ -9,7 +9,20 @@ import com.codegym.repository.VisitorRepository;
 import java.util.List;
 
 public class VisitorService {
-    private VisitorRepository visitorRepository = new VisitorRepository();
+
+    private static VisitorService visitorService;
+
+    private VisitorService() {
+
+    }
+
+    public static VisitorService getVisitorService(){
+        if (visitorService == null){
+            visitorService = new VisitorService();
+        }
+        return visitorService;
+    }
+    private VisitorRepository visitorRepository =  VisitorRepository.getVisitorRepository();
 
 
     public List<Visitor> getVisitors(){

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Cage implements Comparator<Animal> {
+public class Cage implements Comparator<Animal>,Habitat {
     private String cageId;
     private String name;
     private double area;
@@ -169,5 +169,10 @@ public class Cage implements Comparator<Animal> {
                 ", employee=" + employee +
                 ", cageType='" + cageType + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean isCompatible(Animal animal) {
+        return false;
     }
 }

@@ -2,18 +2,35 @@ package com.codegym.repository;
 
 import com.codegym.model.animal.Animal;
 import com.codegym.serializer.ReadAnimalSerializer;
+import com.codegym.service.CageService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AnimalRepository {
+    ReadAnimalSerializer readAnimalSerializer=    ReadAnimalSerializer.getInstanceReadAnimalSerializer();
+
+    private static AnimalRepository animalRepository = null;
+
     private List<Animal> animals;
 
+    private AnimalRepository() {
+        List<Animal> animalList = readAnimalSerializer.readFromCSV();
+        animalList.stream().forEach(System.out::println);
+        animals = readAnimalSerializer.readFromCSV();
 
-
-    public AnimalRepository() {
-        this.animals = new ArrayList<>();
     }
+
+    public static AnimalRepository getAnimalRepository(){
+
+        if (animalRepository == null){
+            System.out.println("test");
+            animalRepository = new AnimalRepository();
+        }
+        return animalRepository;
+    }
+
 
 
     public void addAnimal(Animal animal) {
@@ -45,6 +62,12 @@ public class AnimalRepository {
         return foundAnimals;
     }
 
+    public List<Animal> findByCageId(String cageId) {
+        List<Animal> foundAnimals = animals.stream().filter(x -> cageId.equals(x.getCageId())).collect(Collectors.toList());
+
+        return foundAnimals;
+    }
+
     public List<Animal> getAllAnimals() {
         return animals;
     }
@@ -58,8 +81,8 @@ public class AnimalRepository {
             }
         }
     }
-    private void updateFileCSV(){
-        ReadAnimalSerializer readAnimalSerializer=    ReadAnimalSerializer.getInstanceReadAnimalSerializer();
+    public void updateFileCSV(){
+
         readAnimalSerializer.writeToCSV(animals);
     }
 }

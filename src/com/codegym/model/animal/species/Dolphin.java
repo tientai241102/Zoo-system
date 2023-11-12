@@ -5,12 +5,13 @@ import com.codegym.model.animal.enumerations.HealAnimals;
 import com.codegym.model.animal.enumerations.GenderAnimals;
 import com.codegym.model.animal.interfaces.AnimalActions;
 import com.codegym.model.animal.interfaces.AquaticAnimal;
+import com.codegym.model.foodplan.FoodPlan;
 
 import java.io.Serializable;
 
 public class Dolphin extends Animal implements AnimalActions, AquaticAnimal, Serializable {
-    public Dolphin(int id, String name, String species, double weight, double size, int age, HealAnimals heal, GenderAnimals gender) {
-        super(id, name, species, weight, size, age, heal, gender,"Dolphin");
+    public Dolphin(int id, String name, String species, double weight, double size, int age, HealAnimals heal, GenderAnimals gender, FoodPlan foodPlan,String cageId) {
+        super(id, name, species, weight, size, age, heal, gender,"Dolphin",foodPlan,cageId);
     }
 
 

@@ -6,10 +6,11 @@ import com.codegym.model.animal.enumerations.GenderAnimals;
 import com.codegym.model.animal.interfaces.AnimalActions;
 import com.codegym.model.animal.interfaces.Mammal;
 import com.codegym.model.animal.interfaces.TerrestrialAnimal;
+import com.codegym.model.foodplan.FoodPlan;
 
 public class Elephant extends Animal implements AnimalActions, TerrestrialAnimal, Mammal {
-    public Elephant(int id, String name, String species, double weight, double size, int age, HealAnimals heal, GenderAnimals gender) {
-        super(id, name, species, weight, size, age, heal, gender,"Elephant");
+    public Elephant(int id, String name, String species, double weight, double size, int age, HealAnimals heal, GenderAnimals gender, FoodPlan foodPlan,String cageId) {
+        super(id, name, species, weight, size, age, heal, gender,"Elephant",foodPlan,cageId);
     }
 
     @Override

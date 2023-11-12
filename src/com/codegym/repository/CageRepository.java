@@ -6,12 +6,32 @@ import com.codegym.serializer.ReadCageSerializer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class CageRepository {
     private List<Cage> cages;
 
-    public CageRepository() {
-        this.cages = new ArrayList<>();
+    ReadCageSerializer readCageSerializer = ReadCageSerializer.getInstanceReadCageSerializer();
+
+    private static CageRepository cageRepository;
+
+    private static AnimalRepository animalRepository = AnimalRepository.getAnimalRepository();
+
+    private CageRepository() {
+        this.cages = readCageSerializer.readFromCSV();
+
+        cages.stream().forEach(x ->{
+            x.setAnimals( animalRepository.findByCageId(x.getCageId()));
+        });
+        cages.stream().forEach(System.out::println);
+
+    }
+
+    public static CageRepository getCageRepository() {
+        if (cageRepository == null) {
+            cageRepository = new CageRepository();
+        }
+        return cageRepository;
     }
 
     public void addCage(Cage cage) {
@@ -26,12 +46,13 @@ public class CageRepository {
     }
 
     public Cage findById(String cageId) {
-        for (Cage cage : cages) {
-            if (cageId == cage.getCageId()) {
-                return cage;
-            }
+        Cage cage = null;
+        Optional<Cage> optionalCage = cages.stream().filter(x -> cageId.equals(x.getCageId())).findFirst();
+        if (optionalCage.isPresent()) {
+            cage = optionalCage.get();
         }
-        return null;
+        return cage;
+
     }
 
     public List<Cage> getAllCages() {
@@ -40,14 +61,14 @@ public class CageRepository {
 
     public void updateCage(Cage updatedCage) {
         for (int i = 0; i < cages.size(); i++) {
-                cages.set(i, updatedCage);
+            cages.set(i, updatedCage);
             updateFileCSV();
-                return;
+            return;
 
         }
     }
-    private void updateFileCSV(){
-        ReadCageSerializer readCageSerializer=    ReadCageSerializer.getInstanceReadCageSerializer();
+
+    public void updateFileCSV() {
         readCageSerializer.writeToCSV(cages);
     }
 

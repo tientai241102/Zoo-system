@@ -19,13 +19,13 @@ import java.util.Scanner;
 
 public class VisitorFunction implements MainFunction {
 
-    AnimalService animalService = new AnimalService();
+    AnimalService animalService =  AnimalService.getAnimalService();
 
-    EmployeeService employeeService = new EmployeeService();
+    EmployeeService employeeService =  EmployeeService.getEmployeeService();
 
-    CageService cageService = new CageService();
+    CageService cageService = CageService.getCageService();
 
-    VisitorService visitorService = new VisitorService();
+    VisitorService visitorService = VisitorService.getVisitorService();
 
     @Override
     public void show() {

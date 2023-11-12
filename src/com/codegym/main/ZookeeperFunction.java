@@ -1,13 +1,19 @@
 package com.codegym.main;
 
 import com.codegym.model.Cage.Cage;
+import com.codegym.service.AnimalService;
 import com.codegym.service.CageService;
+import com.codegym.service.EmployeeService;
+import com.codegym.service.VisitorService;
 
 import java.util.Scanner;
 
 public class ZookeeperFunction implements MainFunction{
 
-    CageService cageService = new CageService();
+
+    CageService cageService = CageService.getCageService();
+
+
     @Override
     public void show() {
 

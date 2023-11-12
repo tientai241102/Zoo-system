@@ -11,9 +11,21 @@ public class EmployeeRepository {
 
 
 
-    public EmployeeRepository() {
+    private static EmployeeRepository employeeRepository;
+
+    private EmployeeRepository() {
         this.employees = new ArrayList<>();
     }
+
+    public static EmployeeRepository getEmployeeRepository(){
+        if (employeeRepository == null){
+            employeeRepository = new EmployeeRepository();
+        }
+        return employeeRepository;
+    }
+
+
+
 
     public void addEmployee(Employee employee) {
         employees.add(employee);

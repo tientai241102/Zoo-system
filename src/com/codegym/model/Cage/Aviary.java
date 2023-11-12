@@ -5,7 +5,7 @@ import com.codegym.model.animal.Animal;
 
 import com.codegym.model.animal.interfaces.FlyingAnimal;
 
-public class Aviary extends Cage implements Habitat {
+public class Aviary extends Cage {
     private final int height;
     private CleanlinessEnclosure cleanlinessRoof;
 

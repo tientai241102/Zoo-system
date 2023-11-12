@@ -8,9 +8,22 @@ import java.util.List;
 
 public class EmployeeService {
 
+    private static EmployeeService employeeService;
+
+    private EmployeeService() {
+
+    }
+
+    public static EmployeeService getEmployeeService(){
+        if (employeeService == null){
+            employeeService = new EmployeeService();
+        }
+        return employeeService;
+    }
 
 
-    private EmployeeRepository employeeRepository = new EmployeeRepository();
+
+    private EmployeeRepository employeeRepository =  EmployeeRepository.getEmployeeRepository();
     public List<Employee> getEmployees(){
         return employeeRepository.getAllEmployees();
     }
