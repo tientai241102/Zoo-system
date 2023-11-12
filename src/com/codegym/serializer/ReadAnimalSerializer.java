@@ -47,7 +47,7 @@ public class ReadAnimalSerializer {
                 );
 
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -101,7 +101,7 @@ public class ReadAnimalSerializer {
                 }
                 co = true;
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return loadedObjects;

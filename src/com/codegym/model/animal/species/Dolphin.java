@@ -9,7 +9,7 @@ import com.codegym.model.foodplan.FoodPlan;
 
 import java.io.Serializable;
 
-public class Dolphin extends Animal implements AnimalActions, AquaticAnimal, Serializable {
+public class Dolphin extends Animal implements  AquaticAnimal, Serializable {
     public Dolphin(int id, String name, String species, double weight, double size, int age, HealAnimals heal, GenderAnimals gender, FoodPlan foodPlan,String cageId) {
         super(id, name, species, weight, size, age, heal, gender,"Dolphin",foodPlan,cageId);
     }

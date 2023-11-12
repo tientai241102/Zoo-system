@@ -13,12 +13,19 @@ public class Employee extends Person {
 
     private String role;
 
+    private String username;
 
-    public Employee(String name, String streetAddress, String city, String country, GenderPerson gender, int age, String employeeId, String jobPosition, double salary, String role) {
+    private String password;
+
+
+    public Employee(String name, String streetAddress, String city, String country, GenderPerson gender, int age, String employeeId, String jobPosition, double salary, String role,String username, String password) {
         super(name, streetAddress, city, country, gender, age);
         this.employeeId = employeeId;
         this.jobPosition = jobPosition;
         this.salary = salary;
+        this.role = role;
+        this.username = username;
+        this.password = password;
     }
 
     public String getRole() {
@@ -51,6 +58,22 @@ public class Employee extends Person {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String examineEnclosure(Cage cage) {

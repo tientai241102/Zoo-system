@@ -33,13 +33,17 @@ public class ZookeeperFunction implements MainFunction{
                     }
                     break;
                 case 2:
-                    System.out.println("2. Cho thú ăn");
+                    System.out.println("Nhập Id chuồng thú muốn cho ăn:");
+                    cageService.feedAnimals(scanner.next());
                     break;
                 case 3:
-                    System.out.println("3. Chăm sóc chuồng");
+                    System.out.println("Nhập Id chuồng thú muốn chăm sóc:");
+                    cageService.cleanEnclosure(scanner.next());
                     break;
                 case 4:
-                    System.out.println("4. Xem thông tin Nhân viên của chuồng");
+                    for (Cage cage: cageService.getCagesForUser()){
+                        System.out.println(cage);
+                    }
                     break;
                 case 5:
                     System.out.println("5. Quản lý lịch làm việc");

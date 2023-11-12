@@ -2,11 +2,12 @@ package com.codegym.model.animal;
 
 import com.codegym.model.animal.enumerations.HealAnimals;
 import com.codegym.model.animal.enumerations.GenderAnimals;
+import com.codegym.model.animal.interfaces.AnimalActions;
 import com.codegym.model.foodplan.FoodPlan;
 
 import java.io.Serializable;
 
-public abstract class Animal implements Serializable {
+public abstract class Animal implements Serializable, AnimalActions {
 
     private int id;
     private String name;

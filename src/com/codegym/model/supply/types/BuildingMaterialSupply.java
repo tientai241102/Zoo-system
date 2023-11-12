@@ -7,7 +7,7 @@ public class BuildingMaterialSupply extends Supply {
     private BuildingMaterialType buildingMaterialType;
 
     public BuildingMaterialSupply(int supplyId, String name, double pricePerUnit, int quantityAvailable, BuildingMaterialType buildingMaterialType) {
-        super(supplyId, name, pricePerUnit, quantityAvailable);
+        super(supplyId, name, pricePerUnit, quantityAvailable,"BuildingMaterialSupply");
         this.buildingMaterialType = buildingMaterialType;
     }
 

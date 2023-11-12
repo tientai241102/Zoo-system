@@ -7,7 +7,7 @@ public class MedicineSupply extends Supply {
     private MedicineType medicineType;
 
     public MedicineSupply(int supplyId, String name, double pricePerUnit, int quantityAvailable, MedicineType medicineType) {
-        super(supplyId, name, pricePerUnit, quantityAvailable);
+        super(supplyId, name, pricePerUnit, quantityAvailable,"MedicineSupply");
         this.medicineType = medicineType;
     }
 

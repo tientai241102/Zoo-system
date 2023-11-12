@@ -8,7 +8,7 @@ import com.codegym.model.animal.interfaces.AquaticAnimal;
 import com.codegym.model.animal.interfaces.Mammal;
 import com.codegym.model.foodplan.FoodPlan;
 
-public class Seal extends Animal implements AnimalActions, AquaticAnimal, Mammal {
+public class Seal extends Animal implements  AquaticAnimal, Mammal {
     public Seal(int id, String name, String species, double weight, double size, int age, HealAnimals heal, GenderAnimals gender, FoodPlan foodPlan,String cageId) {
         super(id, name, species, weight, size, age, heal, gender,"Seal",foodPlan,cageId);
     }

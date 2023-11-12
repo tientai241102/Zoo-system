@@ -8,26 +8,29 @@ import com.codegym.model.animal.Animal;
 import com.codegym.model.animal.enumerations.GenderAnimals;
 import com.codegym.model.animal.enumerations.HealAnimals;
 import com.codegym.model.animal.species.*;
+import com.codegym.model.foodplan.FoodPlan;
 import com.codegym.model.person.employee.Accountant;
 import com.codegym.model.person.employee.Employee;
+import com.codegym.model.person.employee.Owner;
+import com.codegym.model.person.employee.Supplier;
 import com.codegym.model.person.enumerations.GenderPerson;
 import com.codegym.model.person.visitors.Visitor;
-import com.codegym.service.AnimalService;
-import com.codegym.service.CageService;
-import com.codegym.service.EmployeeService;
-import com.codegym.service.VisitorService;
+import com.codegym.service.*;
 
 import java.util.Scanner;
 
 public class OwnerFunction implements MainFunction {
 
-    AnimalService animalService =  AnimalService.getAnimalService();
+    AnimalService animalService = AnimalService.getAnimalService();
 
-    EmployeeService employeeService =  EmployeeService.getEmployeeService();
+    EmployeeService employeeService = EmployeeService.getEmployeeService();
 
     CageService cageService = CageService.getCageService();
 
     VisitorService visitorService = VisitorService.getVisitorService();
+
+    HistoryRequestBuySupplyService historyRequestBuySupplyService = HistoryRequestBuySupplyService.getHistoryRequestBuySupplyService();
+
     @Override
     public void show() {
         System.out.println("=== MENU QUẢN LÝ OWNER ===");
@@ -36,9 +39,7 @@ public class OwnerFunction implements MainFunction {
         System.out.println("3. Quản lý Thú");
         System.out.println("4. Quản lý Cơ sở vật chất");
         System.out.println("5. Quản lý nguyên liệu cung cấp");
-        System.out.println("6. Quản lý Cơ sở vật chất công cộng");
-        System.out.println("7. Quản lý dịch vụ ăn uống");
-        System.out.println("8.Thoát về Menu chính");
+        System.out.println("6.Thoát về Menu chính");
         Scanner scanner = new Scanner(System.in);
         int inputManagerOwnerSelected = scanner.nextInt();
         switch (inputManagerOwnerSelected) {
@@ -60,12 +61,6 @@ public class OwnerFunction implements MainFunction {
                 menuManagerFacility();
                 break;
             case 6:
-                System.out.println("6. Quản lý Cơ sở vật chất công cộng");
-                break;
-            case 7:
-                System.out.println("7. Quản lý dịch vụ ăn uống");
-                break;
-            case 8:
                 return;
         }
     }
@@ -74,11 +69,12 @@ public class OwnerFunction implements MainFunction {
 
         while (true) {
             System.out.println("=== Quản lý thông tin nhân viên ===");
-            System.out.println("1.Danh sách thông tin nhân viên");
-            System.out.println("2.Thêm thông tin nhân viên");
-            System.out.println("3.Sửa thông tin nhân viên");
-            System.out.println("4.Xoá thông tin nhân viên");
-            System.out.println("5.Thoát về Menu chính");
+            System.out.println("1. Danh sách thông tin nhân viên");
+            System.out.println("2. Thêm thông tin nhân viên");
+            System.out.println("3. Sửa thông tin nhân viên");
+            System.out.println("4. Xoá thông tin nhân viên");
+            System.out.println("5. Thanh toán lương cho nhân viên");
+            System.out.println("6. Thoát về Menu chính");
             Scanner scanner = new Scanner(System.in);
             int inputMenuAnimalSelected = scanner.nextInt();
             switch (inputMenuAnimalSelected) {
@@ -102,6 +98,8 @@ public class OwnerFunction implements MainFunction {
                     System.out.println("Xoá nhân viên thành công.");
                     break;
                 case 5:
+                    employeeService.payWage();
+                case 6:
                     System.out.println("5. Thoát về Menu chính");
                     return;
             }
@@ -122,7 +120,17 @@ public class OwnerFunction implements MainFunction {
                     menuAnimal();
                     break;
                 case 2:
-                    System.out.println("2.Quản lý chế độ ăn");
+                    for (Animal animal : animalService.getAnimals()) {
+                        System.out.println(animal);
+                    }
+
+                    System.out.println("Nhập thú id: ");
+                    int animalId = scanner.nextInt();
+                    System.out.println("Nhập tên thực phẩm: ");
+                    String foodItem = scanner.next();
+                    System.out.println("Nhập số lượng");
+                    int quantity = scanner.nextInt();
+                    animalService.addFoodPlan(animalId,new FoodPlan(foodItem,quantity));
                     break;
                 case 3:
                     System.out.println("3.Theo dõi sức khỏe");
@@ -156,9 +164,11 @@ public class OwnerFunction implements MainFunction {
                     break;
                 case 2:
                     cageService.addCage(getNewCage());
+                    System.out.println("Thành Công.");
                     break;
                 case 3:
                     cageService.updateCage(getNewCage());
+                    System.out.println("Thành Công.");
                     break;
                 case 4:
                     System.out.println("Nhập ID chuồng muốn thêm thú: ");
@@ -191,28 +201,26 @@ public class OwnerFunction implements MainFunction {
 
         while (true) {
             System.out.println("=== Quản lý thông tin nhân viên ===");
-            System.out.println("1. Xem danh sách nguyên liệu cung cấp");
-            System.out.println("2. Thêm  thông tin nguyên liệu");
-            System.out.println("3. Chỉnh sửa thông tin nguyên liệu");
-            System.out.println("4. Đặt hàng nguyên liệu");
-            System.out.println("5. Thoát về Menu chính");
+            System.out.println("1. Xem danh sách  cung cấp nguyên liệu");
+            System.out.println("2. Phê duyệt yêu cầu mua nguyên liệu");
+            System.out.println("3. Huỷ yêu cầu mua nguyên liệu");
+            System.out.println("4. Thoát về Menu chính");
             Scanner scanner = new Scanner(System.in);
             int inputMenuAnimalSelected = scanner.nextInt();
             switch (inputMenuAnimalSelected) {
                 case 1:
-                    System.out.println("1. Xem danh sách nguyên liệu cung cấp");
+                    historyRequestBuySupplyService.getSupplies().stream().forEach(System.out::println);
                     break;
                 case 2:
-                    System.out.println("2. Thêm  thông tin nguyên liệu");
+                    System.out.println("Id muốn phê duyệt:");
+                    historyRequestBuySupplyService.updateSuccessHistoryRequestBuySupply(scanner.next());
                     break;
                 case 3:
-                    System.out.println("3. Chỉnh sửa thông tin nguyên liệu");
-                    break;
-                case 4:
-                    System.out.println("4. Đặt hàng nguyên liệu");
+                    System.out.println("Id muốn huỷ duyệt:");
+                    historyRequestBuySupplyService.updateFailHistoryRequestBuySupply(scanner.next());
                     break;
                 case 5:
-                    System.out.println("5. Thoát về Menu chính");
+                    System.out.println("4. Thoát về Menu chính");
                     return;
             }
         }
@@ -302,6 +310,8 @@ public class OwnerFunction implements MainFunction {
         System.out.println("=== Chọn nhân viên ===");
         System.out.println("1.Employee");
         System.out.println("2.Accountant");
+        System.out.println("3.Owner");
+        System.out.println("4.Supplier");
         Scanner scanner = new Scanner(System.in);
         int inputAnimalSelected = scanner.nextInt();
         System.out.println("Employee Id:");
@@ -318,16 +328,26 @@ public class OwnerFunction implements MainFunction {
         String city = scanner.next();
         System.out.println("Country:");
         String country = scanner.next();
+        System.out.println("Username:");
+        String username = scanner.next();
+        System.out.println("Password:");
+        String password = scanner.next();
         System.out.println("Age:");
         int age = scanner.nextInt();
         System.out.println("Gender Person MALE,FEMALE,OTHER :");
         GenderPerson gender = GenderPerson.valueOf(scanner.next());
         switch (inputAnimalSelected) {
             case 1:
-                employee = new Employee(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, "Employee");
+                employee = new Employee(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, "Employee", username, password);
                 break;
             case 2:
-                employee = new Accountant(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary);
+                employee = new Accountant(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password);
+                break;
+            case 3:
+                employee = new Owner(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password);
+                break;
+            case 4:
+                employee = new Supplier(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password);
                 break;
         }
         return employee;
@@ -368,28 +388,28 @@ public class OwnerFunction implements MainFunction {
         GenderAnimals gender = GenderAnimals.valueOf(scanner.next());
         switch (inputAnimalSelected) {
             case 1:
-                animal = new Dolphin(id, name, species, weight, size, age, heal, gender,null,null);
+                animal = new Dolphin(id, name, species, weight, size, age, heal, gender, null, null);
                 break;
             case 2:
-                animal = new Eagle(id, name, species, weight, size, age, heal, gender,null,null);
+                animal = new Eagle(id, name, species, weight, size, age, heal, gender, null, null);
                 break;
             case 3:
-                animal = new Elephant(id, name, species, weight, size, age, heal, gender,null,null);
+                animal = new Elephant(id, name, species, weight, size, age, heal, gender, null, null);
                 break;
             case 4:
-                animal = new Lion(id, name, species, weight, size, age, heal, gender,null,null);
+                animal = new Lion(id, name, species, weight, size, age, heal, gender, null, null);
                 break;
             case 5:
-                animal = new Panda(id, name, species, weight, size, age, heal, gender,null,null);
+                animal = new Panda(id, name, species, weight, size, age, heal, gender, null, null);
                 break;
             case 6:
-                animal = new Seal(id, name, species, weight, size, age, heal, gender,null,null);
+                animal = new Seal(id, name, species, weight, size, age, heal, gender, null, null);
                 break;
             case 7:
-                animal = new Shark(id, name, species, weight, size, age, heal, gender,null,null);
+                animal = new Shark(id, name, species, weight, size, age, heal, gender, null, null);
                 break;
             case 8:
-                animal = new Zebra(id, name, species, weight, size, age, heal, gender,null,null);
+                animal = new Zebra(id, name, species, weight, size, age, heal, gender, null, null);
                 break;
         }
         return animal;

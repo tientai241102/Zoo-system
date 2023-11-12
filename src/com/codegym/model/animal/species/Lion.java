@@ -7,7 +7,7 @@ import com.codegym.model.animal.interfaces.AnimalActions;
 import com.codegym.model.animal.interfaces.TerrestrialAnimal;
 import com.codegym.model.foodplan.FoodPlan;
 
-public class Lion extends Animal implements AnimalActions, TerrestrialAnimal {
+public class Lion extends Animal implements  TerrestrialAnimal {
 
     public Lion(int id, String name, String species, double weight, double size, int age, HealAnimals heal, GenderAnimals gender, FoodPlan foodPlan,String cageId) {
         super(id, name, species, weight, size, age, heal, gender,"Lion",foodPlan,cageId);

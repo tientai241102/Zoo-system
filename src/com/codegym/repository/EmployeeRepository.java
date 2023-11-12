@@ -5,16 +5,18 @@ import com.codegym.serializer.ReadEmployeeSerializer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class EmployeeRepository {
     private List<Employee> employees;
+    ReadEmployeeSerializer readEmployeeSerializer=    ReadEmployeeSerializer.getInstanceReadEmployeeSerializer();
 
 
 
     private static EmployeeRepository employeeRepository;
 
     private EmployeeRepository() {
-        this.employees = new ArrayList<>();
+        this.employees = readEmployeeSerializer.readFromCSV();
     }
 
     public static EmployeeRepository getEmployeeRepository(){
@@ -46,6 +48,15 @@ public class EmployeeRepository {
         return null;
     }
 
+
+    public Employee findEmployeeByUsernameAndPassword(String username, String password) {
+        Optional<Employee> optional = employees.stream().filter(x -> username.equals(x.getUsername())).filter(x -> password.equals(x.getPassword())).findFirst();
+        if (optional.isEmpty()){
+            return null;
+        }
+      return optional.get();
+    }
+
     public List<Employee> findEmployeesByName(String name) {
         List<Employee> matchingEmployees = new ArrayList<>();
         for (Employee employee : employees) {
@@ -71,7 +82,6 @@ public class EmployeeRepository {
     }
 
     private void updateFileCSV(){
-        ReadEmployeeSerializer readEmployeeSerializer=    ReadEmployeeSerializer.getInstanceReadEmployeeSerializer();
         readEmployeeSerializer.writeToCSV(employees);
     }
 }

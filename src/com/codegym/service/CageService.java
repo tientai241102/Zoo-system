@@ -3,12 +3,13 @@ package com.codegym.service;
 import com.codegym.model.Cage.Cage;
 import com.codegym.model.Cage.Habitat;
 import com.codegym.model.animal.Animal;
+import com.codegym.model.animal.interfaces.AnimalActions;
 import com.codegym.repository.AnimalRepository;
 import com.codegym.repository.CageRepository;
 
 import java.util.List;
 
-public class CageService {
+public class CageService extends BaseService{
 
 
     private static CageService cageService;
@@ -32,6 +33,39 @@ public class CageService {
 
     public List<Cage> getCages() {
         return cageRepository.getAllCages();
+    }
+
+    public List<Cage> getCagesForUser() {
+        return cageRepository.getAllCagesForUserId(getEmployeeId());
+    }
+
+
+    public void feedAnimals(String cageId){
+        Cage cage = cageRepository.findById(cageId);
+        if (cage == null){
+            System.out.println("Thông tin chuồng thú không hợp lệ.");
+        }else if (cage.isEmpty()){
+            System.out.println("Chuồng phải chứa động vật.");
+        }else {
+            System.out.println("Nhân viên đang cho thú ăn.");
+            cage.getAnimals().stream().forEach(x -> x.eat());
+        }
+    }
+
+    public void cleanEnclosure(String cageId){
+        Cage cage = cageRepository.findById(cageId);
+        if (cage == null){
+            System.out.println("Thông tin chuồng thú không hợp lệ.");
+        }else if (cage.isEmpty()){
+            System.out.println("Chuồng phải chứa động vật.");
+        }else {
+            System.out.println("Chuồng đã được vệ sinh");
+            cage.getAnimals().parallelStream().forEach(x -> {
+                x.move();
+                x.makeSound();
+                x.play();
+            });
+        }
     }
 
     public void addAnimalForCage(String cageId, int animalId) {

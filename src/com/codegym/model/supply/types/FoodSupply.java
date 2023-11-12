@@ -7,7 +7,7 @@ public class FoodSupply extends Supply {
     private FoodType foodType ;
 
     public FoodSupply(int supplyId, String name, double pricePerUnit, int quantityAvailable, FoodType foodType) {
-        super(supplyId, name, pricePerUnit, quantityAvailable);
+        super(supplyId, name, pricePerUnit, quantityAvailable,"FoodSupply");
         this.foodType = foodType;
     }
 
@@ -23,6 +23,6 @@ public class FoodSupply extends Supply {
     public String toString() {
         return "FoodSupply{" +
                 "foodType=" + foodType +
-                '}'+super.toString();
+                '}';
     }
 }

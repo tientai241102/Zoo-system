@@ -6,10 +6,12 @@ public class Supply {
     private double pricePerUnit;
     private int quantityAvailable;
 
+    private String supplyType;
+
     public Supply() {
     }
 
-    public Supply(int supplyId, String name, double pricePerUnit, int quantityAvailable) {
+    public Supply(int supplyId, String name, double pricePerUnit, int quantityAvailable,String supplyType) {
         this.supplyId = supplyId;
         this.name = name;
         this.pricePerUnit = pricePerUnit;
@@ -48,6 +50,14 @@ public class Supply {
         this.quantityAvailable = quantityAvailable;
     }
 
+    public String getSupplyType() {
+        return supplyType;
+    }
+
+    public void setSupplyType(String supplyType) {
+        this.supplyType = supplyType;
+    }
+
     @Override
     public String toString() {
         return "Supply{" +
@@ -55,6 +65,7 @@ public class Supply {
                 ", name='" + name + '\'' +
                 ", pricePerUnit=" + pricePerUnit +
                 ", quantityAvailable=" + quantityAvailable +
+                ", supplyType='" + supplyType + '\'' +
                 '}';
     }
 }

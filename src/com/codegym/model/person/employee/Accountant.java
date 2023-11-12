@@ -7,8 +7,8 @@ import java.util.List;
 public class Accountant extends Employee {
     private double totalRevenue;
 
-    public Accountant(String name, String streetAddress, String city, String country, GenderPerson gender, int age, String employeeId, String jobPosition, double salary) {
-        super(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary,"Accountant");
+    public Accountant(String name, String streetAddress, String city, String country, GenderPerson gender, int age, String employeeId, String jobPosition, double salary,String username, String password) {
+        super(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary,"Accountant",username,password);
         this.totalRevenue = 0.0;
     }
 

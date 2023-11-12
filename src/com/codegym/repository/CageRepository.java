@@ -7,6 +7,7 @@ import com.codegym.serializer.ReadCageSerializer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class CageRepository {
     private List<Cage> cages;
@@ -57,6 +58,9 @@ public class CageRepository {
 
     public List<Cage> getAllCages() {
         return cages;
+    }
+    public List<Cage> getAllCagesForUserId(String employeeId) {
+        return cages.stream().filter(x -> employeeId.equals(x.getEmployeeId())).collect(Collectors.toList());
     }
 
     public void updateCage(Cage updatedCage) {

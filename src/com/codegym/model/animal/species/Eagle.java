@@ -6,7 +6,7 @@ import com.codegym.model.animal.enumerations.GenderAnimals;
 import com.codegym.model.animal.interfaces.*;
 import com.codegym.model.foodplan.FoodPlan;
 
-public class Eagle extends Animal implements AnimalActions, FlyingAnimal {
+public class Eagle extends Animal implements FlyingAnimal {
     public Eagle(int id, String name,String  species, double weight, double size, int age, HealAnimals heal, GenderAnimals gender, FoodPlan foodPlan,String cageId) {
         super(id, name, species, weight, size, age, heal, gender,"Eagle",foodPlan,cageId);
     }

@@ -5,7 +5,7 @@ import com.codegym.model.ticket.enumerations.Date;
 public class AdultTicket implements Ticket{
     @Override
     public double getPrice() {
-        return 60;
+        return 60000;
     }
 
     @Override
