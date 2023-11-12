@@ -1,10 +1,13 @@
 package com.codegym.main;
 
 import com.codegym.model.animal.Animal;
+import com.codegym.service.HistoryTransactionService;
 
 import java.util.Scanner;
 
 public class AccountantFunction implements MainFunction{
+
+    HistoryTransactionService historyTransactionService = HistoryTransactionService.getHistoryTransactionService();
     @Override
     public void show() {
         System.out.println("===  MENU THU NGÂN ===");
@@ -18,7 +21,7 @@ public class AccountantFunction implements MainFunction{
                 System.out.println("1. Bán vé");
                 break;
             case 2:
-                System.out.println("2. Quản lý vé đã bán");
+                historyTransactionService.getHistoryTransactions().stream().forEach(System.out::println);
                 break;
             case 3:
                 System.out.println("3. Thoát về Menu chính");
