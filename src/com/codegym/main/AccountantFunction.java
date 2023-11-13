@@ -12,7 +12,7 @@ public class AccountantFunction implements MainFunction{
     public void show() {
         System.out.println("===  MENU THU NGÂN ===");
         System.out.println("1. Bán vé");
-        System.out.println("2. Quản lý vé đã bán");
+        System.out.println("2. Quản lý thống kê");
         System.out.println("3. Thoát về Menu chính");
         Scanner scanner = new Scanner(System.in);
         int inputMenuManagerCustomerSelected = scanner.nextInt();

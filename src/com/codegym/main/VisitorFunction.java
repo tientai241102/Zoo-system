@@ -19,9 +19,9 @@ import java.util.Scanner;
 
 public class VisitorFunction implements MainFunction {
 
-    AnimalService animalService =  AnimalService.getAnimalService();
+    AnimalService animalService = AnimalService.getAnimalService();
 
-    EmployeeService employeeService =  EmployeeService.getEmployeeService();
+    EmployeeService employeeService = EmployeeService.getEmployeeService();
 
     CageService cageService = CageService.getCageService();
 
@@ -30,27 +30,60 @@ public class VisitorFunction implements MainFunction {
     @Override
     public void show() {
         System.out.println("=== MENU KHÁCH THAM QUAN ===");
-        System.out.println("1. Xem danh sách thú");
-        System.out.println("2. Đặt vé theo độ tuổi");
-        System.out.println("3. Đặt tour hướng dẫn");
-        System.out.println("4. Thoát về Menu chính");
+        System.out.println("1. Đặt vé theo độ tuổi");
+        System.out.println("2. Đặt tour hướng dẫn");
+        System.out.println("3. Thoát về Menu chính");
         Scanner scanner = new Scanner(System.in);
         int inputMenuManagerCustomerSelected = scanner.nextInt();
         switch (inputMenuManagerCustomerSelected) {
             case 1:
-                for (Animal animal : animalService.getAnimals()) {
-                    System.out.println(animal);
-                }
+                visitorService.addVisitor(getNewVisitor());
+                showDetail();
                 break;
             case 2:
-                visitorService.addVisitor(getNewVisitor());
+                System.out.println("2. Đặt tour hướng dẫn");
                 break;
             case 3:
-                System.out.println("3. Đặt tour hướng dẫn");
-                break;
-            case 4:
-                System.out.println("4. Thoát về Menu chính");
+                System.out.println("3. Thoát về Menu chính");
                 return;
+        }
+
+    }
+
+
+
+    public void showDetail() {
+        while (true) {
+            System.out.println("=== MENU KHÁCH THAM QUAN ===");
+            System.out.println("1. Xem danh sách thú");
+            System.out.println("2. Xem chi tiết thú");
+            System.out.println("3. Thăm chuồng thú");
+            System.out.println("4. Quay lại menu");
+            Scanner scanner = new Scanner(System.in);
+            int inputMenuManagerCustomerSelected = scanner.nextInt();
+            switch (inputMenuManagerCustomerSelected) {
+                case 1:
+                    for (Animal animal : animalService.getAnimals()) {
+                        System.out.println(animal);
+                    }
+                    break;
+                case 2:
+                    System.out.println("AnimalId ID: ");
+                    int animalId = scanner.nextInt();
+                    Animal animal = animalService.findById(animalId);
+                    animal.play();
+                    animal.move();
+                    animal.makeSound();
+                    animal.eat();
+                    break;
+                case 3:
+                    cageService.getCages().stream().forEach(System.out::println);
+                    break;
+                case 4:
+                    System.out.println("4. Quay lại menu");
+                    return;
+
+            }
         }
 
     }

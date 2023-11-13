@@ -73,9 +73,6 @@ b
 2src/com/codegym/model/Cage/TerrestrialHabitat.java,2/4/24502f27bc72ef3e6f5d40c088ce12420e5ff3ef
 a
 1src/com/codegym/repository/VisitorRepository.java,8/8/88cb9c54153e2097e0d9f02fab5f32feb5657483
-:
-
-.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 8
 cage.csv,9/c/9cf53c2432c83c61aab4558b718874d6beb199c6
 :
@@ -97,8 +94,6 @@ a
 1src/com/codegym/main/ZookeeperScreenActivity.java,8/d/8da57465561f4eb9776d2dc88323b7f5dcfc6e2f
 V
 &src/com/codegym/model/Cage/Aviary.java,0/4/04b0512c7ba17596ba23cb75a7e1b17736764ddb
-j
-:src/com/codegym/model/animal/interfaces/AnimalActions.java,7/d/7d560c8b61e8df7c66ec7da6708aeb65d1c4e564
 T
 $src/com/codegym/model/Cage/Cage.java,f/c/fc0b65a5eefbc802daa3062b93677e73a3a4a6e0
 j
@@ -109,8 +104,6 @@ _
 /src/com/codegym/main/VisitorScreenActivity.java,f/d/fd84bbc63c488b4979edae88b58c2786982c9510
 Z
 *src/com/codegym/service/AnimalService.java,e/4/e4087ef27d9e5ad4c6e9afcd4450a833b3f988db
-Y
-)src/com/codegym/main/VisitorFunction.java,1/7/174a2f14cb1e1de24e4bf93df656eee7bd2b7a85
 _
 /src/com/codegym/model/ticket/FactoryTicket.java,e/c/ec2ce7a4ae13d082b0fb8aa231add0ce52499b18
 e
@@ -135,8 +128,6 @@ a
 1src/com/codegym/model/animal/species/Dolphin.java,5/9/594af54deaa31d4444654a89b633fa74b4706d8a
 _
 /src/com/codegym/model/animal/species/Eagle.java,6/6/66952d102a905c942003a8d9e3af207e3ed4662d
-b
-2src/com/codegym/model/animal/species/Elephant.java,5/0/50b3e4be2584e5c7776b39bb91eacfef3314576b
 <
 employee.csv,9/c/9c4aad725f6674cdecd9dd72765f786c5009ae47
 c
@@ -199,3 +190,9 @@ _
 /src/com/codegym/model/animal/species/Zebra.java,1/9/19eb3a1c037b6e6ebe8bb58aeb95b43af9b16587
 [
 +src/com/codegym/main/ZookeeperFunction.java,7/8/78653d9edebab38af795bd5bc809d9a1aaa47cd1
+Z
+*src/com/codegym/main/SupplierFunction.java,0/f/0fe7f2656cccbdb79218a248f7b4ce13a9ea3f85
+q
+Asrc/com/codegym/repository/HistoryRequestBuySupplyRepository.java,5/a/5ac12a87caf51b47db53ccfa4469a8d59579d426
+k
+;src/com/codegym/service/HistoryRequestBuySupplyService.java,d/7/d78c89b432cda4ca97df32386ff69dea99c0079f

@@ -63,9 +63,6 @@ n
 >src/com/codegym/model/animal/interfaces/TerrestrialAnimal.java,f/7/f77298631265abb1372bd90e64b3c7f9e217597a
 W
 'src/com/codegym/model/Cage/Habitat.java,b/4/b494186365e1ceb5f09a88ffed750c084e3a6a21
-:
-
-.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 8
 cage.csv,9/c/9cf53c2432c83c61aab4558b718874d6beb199c6
 a
@@ -100,15 +97,11 @@ $src/com/codegym/model/Cage/Cage.java,f/c/fc0b65a5eefbc802daa3062b93677e73a3a4a
 V
 &src/com/codegym/model/Cage/Aviary.java,0/4/04b0512c7ba17596ba23cb75a7e1b17736764ddb
 j
-:src/com/codegym/model/animal/interfaces/AnimalActions.java,7/d/7d560c8b61e8df7c66ec7da6708aeb65d1c4e564
-j
 :src/com/codegym/model/animal/interfaces/AquaticAnimal.java,3/5/3580798751220aac1175afa253b058a01ba337ad
 \
 ,src/com/codegym/model/foodplan/FoodPlan.java,d/c/dcd566e5faaebb04bd2629870860cfe332249321
 _
 /src/com/codegym/main/VisitorScreenActivity.java,f/d/fd84bbc63c488b4979edae88b58c2786982c9510
-Y
-)src/com/codegym/main/VisitorFunction.java,1/7/174a2f14cb1e1de24e4bf93df656eee7bd2b7a85
 Z
 *src/com/codegym/service/AnimalService.java,e/4/e4087ef27d9e5ad4c6e9afcd4450a833b3f988db
 _
@@ -127,8 +120,6 @@ _
 /src/com/codegym/model/animal/species/Eagle.java,6/6/66952d102a905c942003a8d9e3af207e3ed4662d
 X
 (src/com/codegym/model/animal/Animal.java,4/3/4347e989881c32bb92827a6866203d71f78206ec
-b
-2src/com/codegym/model/animal/species/Elephant.java,5/0/50b3e4be2584e5c7776b39bb91eacfef3314576b
 j
 :src/com/codegym/model/history/HistoryRequestBuySupply.java,5/2/52ae6d89c4ed6547790250c400c87db87e771e51
 a
@@ -199,3 +190,9 @@ b
 2src/com/codegym/serializer/ReadCageSerializer.java,7/b/7ba38a1f75597b634edeeb3d13c26a08d3af5aaf
 [
 +src/com/codegym/main/ZookeeperFunction.java,7/8/78653d9edebab38af795bd5bc809d9a1aaa47cd1
+Z
+*src/com/codegym/main/SupplierFunction.java,0/f/0fe7f2656cccbdb79218a248f7b4ce13a9ea3f85
+q
+Asrc/com/codegym/repository/HistoryRequestBuySupplyRepository.java,5/a/5ac12a87caf51b47db53ccfa4469a8d59579d426
+k
+;src/com/codegym/service/HistoryRequestBuySupplyService.java,d/7/d78c89b432cda4ca97df32386ff69dea99c0079f
