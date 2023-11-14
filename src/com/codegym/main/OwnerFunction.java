@@ -354,7 +354,7 @@ public class OwnerFunction implements MainFunction {
                 employee = new Accountant(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password);
                 break;
             case 3:
-                employee = new Owner(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password);
+                employee = new Owner(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password,0);
                 break;
             case 4:
                 employee = new Supplier(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password);

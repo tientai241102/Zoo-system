@@ -15,6 +15,7 @@ import com.codegym.service.CageService;
 import com.codegym.service.EmployeeService;
 import com.codegym.service.VisitorService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class VisitorFunction implements MainFunction {
@@ -37,7 +38,11 @@ public class VisitorFunction implements MainFunction {
         int inputMenuManagerCustomerSelected = scanner.nextInt();
         switch (inputMenuManagerCustomerSelected) {
             case 1:
-                visitorService.addVisitor(getNewVisitor());
+                System.out.println("Nhâp số lượng vé muốn mua:");
+                int numberTicket = scanner.nextInt();
+                for (int i = 0; i < numberTicket; i++) {
+                    visitorService.addVisitor(getNewVisitor());
+                }
                 showDetail();
                 break;
             case 2:
@@ -58,7 +63,8 @@ public class VisitorFunction implements MainFunction {
             System.out.println("1. Xem danh sách thú");
             System.out.println("2. Xem chi tiết thú");
             System.out.println("3. Thăm chuồng thú");
-            System.out.println("4. Quay lại menu");
+            System.out.println("4. Thăm chi tiết chuồng thú");
+            System.out.println("5. Quay lại menu");
             Scanner scanner = new Scanner(System.in);
             int inputMenuManagerCustomerSelected = scanner.nextInt();
             switch (inputMenuManagerCustomerSelected) {
@@ -80,6 +86,11 @@ public class VisitorFunction implements MainFunction {
                     cageService.getCages().stream().forEach(System.out::println);
                     break;
                 case 4:
+                    System.out.println("Cage ID: ");
+                    String cage = scanner.next();
+                    System.out.println(cageService.findById(cage));
+                    break;
+                case 5:
                     System.out.println("4. Quay lại menu");
                     return;
 

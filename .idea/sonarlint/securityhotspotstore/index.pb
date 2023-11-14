@@ -75,9 +75,6 @@ b
 2src/com/codegym/model/Cage/TerrestrialHabitat.java,2/4/24502f27bc72ef3e6f5d40c088ce12420e5ff3ef
 ]
 -src/com/codegym/main/OwnerScreenActivity.java,0/2/02fe29555bffb098351a17c9073cbb34416e13bd
-:
-
-animal.csv,6/b/6b336ea767d1451485dd7ed36012b773de532afe
 ^
 .src/com/codegym/model/Cage/AquaticHabitat.java,8/a/8a87dd71f8f0a0eb3f8be431da76e575cbcd66b2
 `
@@ -100,8 +97,6 @@ j
 :src/com/codegym/model/animal/interfaces/AquaticAnimal.java,3/5/3580798751220aac1175afa253b058a01ba337ad
 \
 ,src/com/codegym/model/foodplan/FoodPlan.java,d/c/dcd566e5faaebb04bd2629870860cfe332249321
-_
-/src/com/codegym/main/VisitorScreenActivity.java,f/d/fd84bbc63c488b4979edae88b58c2786982c9510
 Z
 *src/com/codegym/service/AnimalService.java,e/4/e4087ef27d9e5ad4c6e9afcd4450a833b3f988db
 _
@@ -112,8 +107,6 @@ n
 >src/com/codegym/model/supply/types/BuildingMaterialSupply.java,4/9/4901f0467aea81c299c48b97b462fb7bf4267808
 b
 2src/com/codegym/model/supply/types/FoodSupply.java,2/1/21554232938bb1a6634fba67776d64b1215ee4b4
-`
-0src/com/codegym/model/person/employee/Owner.java,6/5/65835b0ed840837aeba98e5416190e3e4068b7cb
 _
 /src/com/codegym/model/animal/species/Zebra.java,1/9/19eb3a1c037b6e6ebe8bb58aeb95b43af9b16587
 _
@@ -144,8 +137,6 @@ p
 @src/com/codegym/serializer/ReadHistoryTransactionSerializer.java,0/e/0e9e6a09a7b41fba67ee295279d8317220694a74
 X
 (src/com/codegym/service/BaseService.java,8/7/875fd4076dc24fb08323cc2b86ce8bb4efd7e96e
-`
-0src/com/codegym/main/SupplierScreenActivity.java,e/e/ee778fb196e3bab8cbb3a8f366019a495153ef90
 d
 4src/com/codegym/serializer/ReadSupplySerializer.java,2/1/21235086c5d328fdfc3efd1e6b908a62f566a50a
 _
@@ -162,18 +153,8 @@ e
 .src/com/codegym/model/ticket/SeniorTicket.java,c/5/c512ca1a91cd48f612995839f3758d50804c3c4e
 ]
 -src/com/codegym/model/ticket/AdultTicket.java,b/f/bf6d3d518c0eda77b9d16e62e98eaef18343185e
-<
-employee.csv,9/c/9c4aad725f6674cdecd9dd72765f786c5009ae47
-f
-6src/com/codegym/service/HistoryTransactionService.java,0/8/083409d2bf4c52dd7fa981f7736caced04c0df4b
-\
-,src/com/codegym/service/EmployeeService.java,9/8/98b15991d1f6f8cc5cca391ad9d8d6fc9e013e46
 l
 <src/com/codegym/repository/TransactionHistoryRepository.java,7/6/769341d7aafee949a2c1350d90b859561dddfec7
-b
-2src/com/codegym/repository/EmployeeRepository.java,0/e/0eb469483bd30b377ef4c21a2461b3632d726761
-[
-+src/com/codegym/service/VisitorService.java,9/0/905ab4d2e1e0e140177512724a774e028a025485
 X
 (src/com/codegym/service/CageService.java,1/f/1f65212ae59bc18227700006acf27ce0ce830248
 f
@@ -184,8 +165,6 @@ f
 6src/com/codegym/serializer/ReadCustomerSerializer.java,d/7/d75900ae2702e825b696589c541bf07ba6e56979
 d
 4src/com/codegym/serializer/ReadAnimalSerializer.java,2/1/21592ba319480d83c1423c33ac72f625416bbf4b
-f
-6src/com/codegym/serializer/ReadEmployeeSerializer.java,9/8/98fa7a54a4d758c5dc27a1e61d31cc67f1e90cee
 b
 2src/com/codegym/serializer/ReadCageSerializer.java,7/b/7ba38a1f75597b634edeeb3d13c26a08d3af5aaf
 [
@@ -196,3 +175,9 @@ q
 Asrc/com/codegym/repository/HistoryRequestBuySupplyRepository.java,5/a/5ac12a87caf51b47db53ccfa4469a8d59579d426
 k
 ;src/com/codegym/service/HistoryRequestBuySupplyService.java,d/7/d78c89b432cda4ca97df32386ff69dea99c0079f
+j
+:src/com/codegym/model/animal/interfaces/AnimalActions.java,7/d/7d560c8b61e8df7c66ec7da6708aeb65d1c4e564
+b
+2src/com/codegym/model/animal/species/Elephant.java,5/0/50b3e4be2584e5c7776b39bb91eacfef3314576b
+Z
+*src/com/codegym/service/SupplyService.java,f/1/f1627b934996879e52f944edc2fe67cdce1e37df

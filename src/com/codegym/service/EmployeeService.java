@@ -30,6 +30,7 @@ public class EmployeeService extends BaseService{
 
     public void payWage(){
         getEmployees().stream().forEach(x->{
+            if (!x.getRole().equals("Owner"))
             historyTransactionService.addHistoryTransaction(new HistoryTransaction( genId(),x.getEmployeeId(), HistoryType.PAY_WAGE,x.getSalary(),new Date(System.currentTimeMillis())));
         });
         System.out.println("Thành Công");

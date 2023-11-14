@@ -34,7 +34,7 @@ public class ReadEmployeeSerializer {
 
     public void writeToCSV(List<Employee> objects) {
         try (PrintWriter writer = new PrintWriter(new FileWriter("employee.csv"))) {
-            writer.println("Name,Street, City,Country,Gender,Age,Employee Id,Job Position,Salary,Role,Total Revenue, Username, Password");
+            writer.println("Name,Street, City,Country,Gender,Age,Employee Id,Job Position,Salary,Role,Total Revenue, Username, Password, Total Money");
             for (Employee obj : objects) {
                 if (obj instanceof Accountant) {
                     writer.println(obj.getName() + "," +
@@ -49,7 +49,21 @@ public class ReadEmployeeSerializer {
                             obj.getRole() + "," +
                             ((Accountant) obj).getTotalRevenue()+ "," +
                             obj.getUsername()+ "," +
-                            obj.getPassword()
+                            obj.getPassword()+ ", ,"
+                    );
+                } else if (obj instanceof Owner) {
+                    writer.println(obj.getName() + "," +
+                            obj.getStreetAddress() + "," +
+                            obj.getCity() + "," +
+                            obj.getCountry() + "," +
+                            obj.getGender() + "," +
+                            obj.getAge() + "," +
+                            obj.getEmployeeId() + "," +
+                            obj.getJobPosition() + "," +
+                            obj.getSalary() + "," +
+                            obj.getRole() + "," + " "+ "," +
+                            obj.getUsername()+ "," +
+                            obj.getPassword()+ ","+ ((Owner) obj).getTotalMoney()
                     );
                 } else {
                     writer.println(obj.getName() + "," +
@@ -63,7 +77,7 @@ public class ReadEmployeeSerializer {
                             obj.getSalary() + "," +
                             obj.getRole() + "," + " "+ "," +
                             obj.getUsername()+ "," +
-                            obj.getPassword()
+                            obj.getPassword()+ ", ,"
                     );
                 }
             }
@@ -100,9 +114,15 @@ public class ReadEmployeeSerializer {
                     }
                     String username = data[11];
                     String password = data[12];
+                    String totalMoneyString = data[13];
+                    double totalMoney=0;
+                    if (!totalRevenueString.isBlank()){
+                        totalMoney = Double.valueOf(totalMoneyString);
+                    }
+
                     Employee employee ;
                     if ("Owner".equals(role)){
-                        employee = new Owner(name,streetAddress,city,country,gender,age,employeeId,jobPosition,salary,username,password);
+                        employee = new Owner(name,streetAddress,city,country,gender,age,employeeId,jobPosition,salary,username,password,totalMoney);
                     }else if ("Supplier".equals(role)){
                         employee =new Supplier(name,streetAddress,city,country,gender,age,employeeId,jobPosition,salary,username,password);
                     }else  if ("Accountant".equals(role)){
