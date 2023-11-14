@@ -16,8 +16,10 @@ public class VisitorRepository {
 
     private static VisitorRepository visitorRepository;
 
+    private ReadCustomerSerializer readCustomerSerializer = ReadCustomerSerializer.getInstanceReadCustomerSerializer();
+
     private VisitorRepository() {
-        this.visitors = new ArrayList<>();
+        this.visitors = readCustomerSerializer.readFromCSV();
     }
 
     public static VisitorRepository getVisitorRepository(){
@@ -32,6 +34,7 @@ public class VisitorRepository {
 
     public void addVisitor(Visitor visitor) {
         visitors.add(visitor);
+        updateFileCSV();
     }
 
     public List<Visitor> findVisitorsByAgeCategory(AgeCategory ageCategory) {
@@ -58,7 +61,6 @@ public class VisitorRepository {
     }
 
     private void updateFileCSV(){
-        ReadCustomerSerializer readCustomerSerializer=    ReadCustomerSerializer.getInstanceReadCustomerSerializer();
         readCustomerSerializer.writeToCSV(visitors);
     }
 }
