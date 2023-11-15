@@ -31,7 +31,7 @@ public class MainActivity extends BaseService {
             System.out.println("3. Đăng nhập Thu ngân.");
             System.out.println("4. Đăng nhập quản lý cơ sở vật chất.");
             System.out.println("5. Khách tham quan.");
-            System.out.println("0. Khách tham quan.");
+            System.out.println("0. Thoát");
             Scanner scanner = new Scanner(System.in);
             int inputDataMainSelected = scanner.nextInt();
             if (inputDataMainSelected == 1

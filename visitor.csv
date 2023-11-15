@@ -1,3 +1,7 @@
 Name,Street, City,Country,Gender,Age,Visitor ID,Age Category
 Tientai,ha,noi,test,MALE,12,123,CHILD
 testdata1,test,test,test,MALE,24,24,CHILD
+test1,test,test,test,MALE,25,244a,CHILD
+test24,test,,test,MALE,24,25435,CHILD
+test55,test,,test,MALE,25,35453,CHILD
+test555,test,test,test,MALE,24,124513,CHILD

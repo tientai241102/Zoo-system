@@ -329,7 +329,7 @@ public class OwnerFunction implements MainFunction {
         System.out.println("Street Address:");
         String streetAddress = scanner.next();
         System.out.println("City:");
-        String city = scanner.nextLine();
+        String city = scanner.next();
         System.out.println("Country:");
         String country = scanner.next();
         System.out.println("Username:");
