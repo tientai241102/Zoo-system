@@ -1,6 +1,4 @@
 Name,Street, City,Country,Gender,Age,Employee Id,Job Position,Salary,Role,Total Revenue, Username, Password, Total Money
 Tai,HN,Hn,HN,MALE,27,owner1,nguoi,10000.0,Owner, ,tientai24,tientai24,239000.0
 test,test,test,test,MALE,24,test123,Data123,1000.0,Supplier, ,Tientai2411!,tientai24, ,
-test,test,test,test,MALE,24test124,test24,1000.0,Accountant,0.0,Tientai2422@,tientai24, ,
-test,test,test,test,MALE,24test12,test,1000.0,Accountant,0.0,test123,Test123@, ,
-test,test,test,test,MALE,12123,test,1000.0,Accountant,0.0,test1234,Test1235@, ,
+test,test,test,test,MALE,16,12,test,10000.0,Accountant,0.0,test123,Test123@, ,

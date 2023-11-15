@@ -116,7 +116,7 @@ public class ReadEmployeeSerializer {
                     String password = data[12];
                     String totalMoneyString = data[13];
                     double totalMoney=0;
-                    if (!totalRevenueString.isBlank()){
+                    if (!totalMoneyString.isBlank()){
                         totalMoney = Double.valueOf(totalMoneyString);
                     }
 
