@@ -16,6 +16,7 @@ public class Supply {
         this.name = name;
         this.pricePerUnit = pricePerUnit;
         this.quantityAvailable = quantityAvailable;
+        this.supplyType = supplyType;
     }
 
     public int getSupplyId() {

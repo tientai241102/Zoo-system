@@ -1,2 +1,3 @@
-Name,Street, City,Country,Gender,Age,Employee Id,Job Position,Salary,Role,Total Revenue, Username, Password
-Tai,HN,Hn,HN,MALE,27,owner1,nguoi,10000.0,Owner, ,tientai24,tientai24
+Name,Street, City,Country,Gender,Age,Employee Id,Job Position,Salary,Role,Total Revenue, Username, Password, Total Money
+Tai,HN,Hn,HN,MALE,27,owner1,nguoi,10000.0,Owner, ,tientai24,tientai24,0.0
+test,test,test,test,MALE,24,test123,Data123,1000.0,Supplier, ,Tientai2411!,tientai24, ,

@@ -35,35 +35,37 @@ public class OwnerFunction implements MainFunction {
 
     @Override
     public void show() {
-        System.out.println("=== MENU QUẢN LÝ OWNER ===");
-        System.out.println("1. Quản lý khách thăm quan");
-        System.out.println("2. Quản lý Nhân viên");
-        System.out.println("3. Quản lý Thú");
-        System.out.println("4. Quản lý Cơ sở vật chất");
-        System.out.println("5. Quản lý nguyên liệu cung cấp");
-        System.out.println("6.Thoát về Menu chính");
-        Scanner scanner = new Scanner(System.in);
-        int inputManagerOwnerSelected = scanner.nextInt();
-        switch (inputManagerOwnerSelected) {
-            case 1:
-                for (Visitor visitor : visitorService.getVisitors()) {
-                    System.out.println(visitor);
-                }
-                break;
-            case 2:
-                menuManagerEmployee();
-                break;
-            case 3:
-                menuManagerAnimal();
-                break;
-            case 4:
-                menuManagerCage();
-                break;
-            case 5:
-                menuManagerFacility();
-                break;
-            case 6:
-                return;
+        while (true) {
+            System.out.println("=== MENU QUẢN LÝ OWNER ===");
+            System.out.println("1. Quản lý khách thăm quan");
+            System.out.println("2. Quản lý Nhân viên");
+            System.out.println("3. Quản lý Thú");
+            System.out.println("4. Quản lý Cơ sở vật chất");
+            System.out.println("5. Quản lý nguyên liệu cung cấp");
+            System.out.println("6.Thoát về Menu chính");
+            Scanner scanner = new Scanner(System.in);
+            int inputManagerOwnerSelected = scanner.nextInt();
+            switch (inputManagerOwnerSelected) {
+                case 1:
+                    for (Visitor visitor : visitorService.getVisitors()) {
+                        System.out.println(visitor);
+                    }
+                    break;
+                case 2:
+                    menuManagerEmployee();
+                    break;
+                case 3:
+                    menuManagerAnimal();
+                    break;
+                case 4:
+                    menuManagerCage();
+                    break;
+                case 5:
+                    menuManagerFacility();
+                    break;
+                case 6:
+                    return;
+            }
         }
     }
 
@@ -132,7 +134,7 @@ public class OwnerFunction implements MainFunction {
                     String foodItem = scanner.next();
                     System.out.println("Nhập số lượng");
                     int quantity = scanner.nextInt();
-                    animalService.addFoodPlan(animalId,new FoodPlan(foodItem,quantity));
+                    animalService.addFoodPlan(animalId, new FoodPlan(foodItem, quantity));
                     break;
                 case 3:
                     System.out.println("3.Theo dõi sức khỏe");
@@ -221,7 +223,7 @@ public class OwnerFunction implements MainFunction {
                     System.out.println("Id muốn huỷ duyệt:");
                     historyRequestBuySupplyService.updateFailHistoryRequestBuySupply(scanner.next());
                     break;
-                case 5:
+                case 4:
                     System.out.println("4. Thoát về Menu chính");
                     return;
             }
@@ -278,8 +280,8 @@ public class OwnerFunction implements MainFunction {
         String id = scanner.next();
         System.out.println("Name: ");
         String name = scanner.next();
-        System.out.println("Area: ");
-        double area = scanner.nextDouble();
+//        System.out.println("Area: ");
+        double area = 0;
         System.out.println("Max Animals: ");
         int maxAnimals = scanner.nextInt();
         System.out.println("Employee Id: ");
@@ -327,7 +329,7 @@ public class OwnerFunction implements MainFunction {
         System.out.println("Street Address:");
         String streetAddress = scanner.next();
         System.out.println("City:");
-        String city = scanner.next();
+        String city = scanner.nextLine();
         System.out.println("Country:");
         String country = scanner.next();
         System.out.println("Username:");
@@ -341,7 +343,7 @@ public class OwnerFunction implements MainFunction {
         Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&*!])[A-Za-z\\d@#$%^&*!]{8,}$");
         Matcher matcher = pattern.matcher(username);
         boolean matchFound = matcher.find();
-        if(!matchFound) {
+        if (!matchFound) {
             System.out.println("Username không hợp lệ.");
             return getNewEmployee();
         }
@@ -354,7 +356,7 @@ public class OwnerFunction implements MainFunction {
                 employee = new Accountant(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password);
                 break;
             case 3:
-                employee = new Owner(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password,0);
+                employee = new Owner(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password, 0);
                 break;
             case 4:
                 employee = new Supplier(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password);

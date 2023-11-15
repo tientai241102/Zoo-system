@@ -20,7 +20,6 @@ public class SupplyRepository {
     private SupplyRepository() {
         this.supplys = readSupplySerializer.readFromCSV();
 
-        supplys.stream().forEach(System.out::println);
 
     }
 

@@ -17,7 +17,6 @@ public class AnimalRepository {
 
     private AnimalRepository() {
         List<Animal> animalList = readAnimalSerializer.readFromCSV();
-        animalList.stream().forEach(System.out::println);
         animals = readAnimalSerializer.readFromCSV();
 
     }
@@ -25,7 +24,6 @@ public class AnimalRepository {
     public static AnimalRepository getAnimalRepository(){
 
         if (animalRepository == null){
-            System.out.println("test");
             animalRepository = new AnimalRepository();
         }
         return animalRepository;

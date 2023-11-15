@@ -18,8 +18,7 @@ public class HistoryRequestBuySupplyRepository {
 
     private HistoryRequestBuySupplyRepository() {
         this.historyRequestBuySupplys = readHistoryRequestBuySupplySerializer.readFromCSV();
-        
-        historyRequestBuySupplys.stream().forEach(System.out::println);
+
 
     }
 

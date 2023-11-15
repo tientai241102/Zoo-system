@@ -21,4 +21,10 @@ public class  Owner extends Employee {
     public void setTotalMoney(double totalMoney) {
         this.totalMoney = totalMoney;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +"------" +
+                "totalMoney=" + totalMoney ;
+    }
 }

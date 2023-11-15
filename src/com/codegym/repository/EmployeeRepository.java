@@ -1,6 +1,7 @@
 package com.codegym.repository;
 
 import com.codegym.model.person.employee.Employee;
+import com.codegym.model.person.employee.Owner;
 import com.codegym.serializer.ReadEmployeeSerializer;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.Optional;
 public class EmployeeRepository {
     private List<Employee> employees;
     ReadEmployeeSerializer readEmployeeSerializer=    ReadEmployeeSerializer.getInstanceReadEmployeeSerializer();
+    TransactionHistoryRepository transactionHistoryRepository=    TransactionHistoryRepository.getHistoryTransactionRepository();
 
 
 
@@ -17,6 +19,11 @@ public class EmployeeRepository {
 
     private EmployeeRepository() {
         this.employees = readEmployeeSerializer.readFromCSV();
+
+     Optional<Employee> employeeOwner=   employees.stream().filter(employee -> employee.getEmployeeId().equals("owner1")).findFirst();
+     if (employeeOwner != null){
+         ((Owner)employeeOwner.get()).setTotalMoney(transactionHistoryRepository.getTotalMoneyOwner());
+     }
     }
 
     public static EmployeeRepository getEmployeeRepository(){

@@ -24,7 +24,6 @@ public class CageRepository {
         cages.stream().forEach(x ->{
             x.setAnimals( animalRepository.findByCageId(x.getCageId()));
         });
-        cages.stream().forEach(System.out::println);
 
     }
 
