@@ -88,7 +88,7 @@ public class EmployeeRepository {
         }
     }
 
-    private void updateFileCSV(){
+    public void updateFileCSV(){
         readEmployeeSerializer.writeToCSV(employees);
     }
 }

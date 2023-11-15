@@ -340,13 +340,17 @@ public class OwnerFunction implements MainFunction {
         int age = scanner.nextInt();
         System.out.println("Gender Person MALE,FEMALE,OTHER :");
         GenderPerson gender = GenderPerson.valueOf(scanner.next());
-        Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&*!])[A-Za-z\\d@#$%^&*!]{8,}$");
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9]{6,20}$");
         Matcher matcher = pattern.matcher(username);
+        Pattern patternPass = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&*!])[A-Za-z\\d@#$%^&*!]{8,}$");
+        Matcher matcherPass  = patternPass.matcher(password);
         boolean matchFound = matcher.find();
-        if (!matchFound) {
-            System.out.println("Username không hợp lệ.");
+        boolean matchFoundPass = matcherPass.find();
+        if (!matchFound ||  !matchFoundPass) {
+            System.out.println("Username hoặc Password không hợp lệ.");
             return getNewEmployee();
         }
+
 
         switch (inputAnimalSelected) {
             case 1:

@@ -42,7 +42,7 @@ public class ReadEmployeeSerializer {
                             obj.getCity() + "," +
                             obj.getCountry() + "," +
                             obj.getGender() + "," +
-                            obj.getAge() +
+                            obj.getAge() + "," +
                             obj.getEmployeeId() + "," +
                             obj.getJobPosition() + "," +
                             obj.getSalary() + "," +

@@ -45,6 +45,7 @@ public class HistoryTransactionService {
                ((Owner) employee).setTotalMoney(((Owner) employee).getTotalMoney() - historyTransaction.getTotalMoney());
                System.out.println("Tiền đã trừ vào tài khoản Owner");
            }
+           employeeRepository.updateFileCSV();
 
 
        }        historyTransactionRepository.addHistoryTransaction(historyTransaction);
