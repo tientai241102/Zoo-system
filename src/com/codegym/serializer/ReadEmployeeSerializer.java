@@ -34,7 +34,7 @@ public class ReadEmployeeSerializer {
 
     public void writeToCSV(List<Employee> objects) {
         try (PrintWriter writer = new PrintWriter(new FileWriter("employee.csv"))) {
-            writer.println("Name,Street, City,Country,Gender,Age,Employee Id,Job Position,Salary,Role,Total Revenue, Username, Password, Total Money");
+            writer.println("Name,Street, City,Country,Gender,Age,Employee Id,Job Position,Salary,Role,Total Money, Username, Password, Total Money");
             for (Employee obj : objects) {
                 if (obj instanceof Accountant) {
                     writer.println(obj.getName() + "," +
@@ -47,9 +47,9 @@ public class ReadEmployeeSerializer {
                             obj.getJobPosition() + "," +
                             obj.getSalary() + "," +
                             obj.getRole() + "," +
-                            ((Accountant) obj).getTotalRevenue()+ "," +
+                            ((Accountant) obj).getTotalMoney()+ "," +
                             obj.getUsername()+ "," +
-                            obj.getPassword()+ ", ,"
+                            obj.getPassword()+ ","+ ((Employee) obj).getTotalMoney()
                     );
                 } else if (obj instanceof Owner) {
                     writer.println(obj.getName() + "," +
@@ -77,7 +77,7 @@ public class ReadEmployeeSerializer {
                             obj.getSalary() + "," +
                             obj.getRole() + "," + " "+ "," +
                             obj.getUsername()+ "," +
-                            obj.getPassword()+ ", ,"
+                            obj.getPassword()+ ","+ ((Employee) obj).getTotalMoney()
                     );
                 }
             }
@@ -124,11 +124,11 @@ public class ReadEmployeeSerializer {
                     if ("Owner".equals(role)){
                         employee = new Owner(name,streetAddress,city,country,gender,age,employeeId,jobPosition,salary,username,password,totalMoney);
                     }else if ("Supplier".equals(role)){
-                        employee =new Supplier(name,streetAddress,city,country,gender,age,employeeId,jobPosition,salary,username,password);
+                        employee =new Supplier(name,streetAddress,city,country,gender,age,employeeId,jobPosition,salary,username,password,totalMoney);
                     }else  if ("Accountant".equals(role)){
-                        employee =new Accountant(name,streetAddress,city,country,gender,age,employeeId,jobPosition,salary,username,password);
+                        employee =new Accountant(name,streetAddress,city,country,gender,age,employeeId,jobPosition,salary,username,password,totalMoney);
                     }else {
-                        employee = new Employee(name,streetAddress,city,country,gender,age,employeeId,jobPosition,salary,"Employee",username,password);
+                        employee = new Employee(name,streetAddress,city,country,gender,age,employeeId,jobPosition,salary,"Employee",username,password,totalMoney);
                     }
                     loadedObjects.add(employee);
                 }

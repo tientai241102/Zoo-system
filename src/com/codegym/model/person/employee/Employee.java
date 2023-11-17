@@ -17,8 +17,10 @@ public class Employee extends Person {
 
     private String password;
 
+    private double totalMoney;
 
-    public Employee(String name, String streetAddress, String city, String country, GenderPerson gender, int age, String employeeId, String jobPosition, double salary, String role,String username, String password) {
+
+    public Employee(String name, String streetAddress, String city, String country, GenderPerson gender, int age, String employeeId, String jobPosition, double salary, String role,String username, String password, double totalMoney) {
         super(name, streetAddress, city, country, gender, age);
         this.employeeId = employeeId;
         this.jobPosition = jobPosition;
@@ -26,6 +28,15 @@ public class Employee extends Person {
         this.role = role;
         this.username = username;
         this.password = password;
+        this.totalMoney = totalMoney;
+    }
+
+    public double getTotalMoney() {
+        return totalMoney;
+    }
+
+    public void setTotalMoney(double totalMoney) {
+        this.totalMoney = totalMoney;
     }
 
     public String getRole() {
@@ -112,6 +123,10 @@ public class Employee extends Person {
                 "employeeId='" + employeeId + '\'' +
                 ", jobPosition='" + jobPosition + '\'' +
                 ", salary=" + salary +
+                ", role='" + role + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", totalMoney=" + totalMoney +
                 '}';
     }
 }

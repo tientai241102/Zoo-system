@@ -1,4 +1,5 @@
-Name,Street, City,Country,Gender,Age,Employee Id,Job Position,Salary,Role,Total Revenue, Username, Password, Total Money
-Tai,HN,Hn,HN,MALE,27,owner1,nguoi,10000.0,Owner, ,tientai24,tientai24,239000.0
-test,test,test,test,MALE,24,test123,Data123,1000.0,Supplier, ,Tientai2411!,tientai24, ,
-test,test,test,test,MALE,16,12,test,10000.0,Accountant,0.0,test123,Test123@, ,
+Name,Street, City,Country,Gender,Age,Employee Id,Job Position,Salary,Role,Total Money, Username, Password, Total Money
+Tai,HN,Hn,HN,MALE,27,owner1,nguoi,10000.0,Owner, ,tientai24,tientai24,227000.0
+test,test,test,test,MALE,24,test123,Data123,1000.0,Supplier, ,Tientai2411!,tientai24,1000.0
+test,test,test,test,MALE,16,12,test,10000.0,Employee,10000.0,test123,Test123@,10000.0
+test,test,test,test,MALE,24,12,test,1000.0,Accountant,1000.0,test1111,Test1111@,1000.0

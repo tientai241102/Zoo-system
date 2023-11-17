@@ -56,7 +56,7 @@ public class MainActivity extends BaseService {
                     break;
                 case 2:
                     screenActivity = new ZookeeperScreenActivity();
-                    if (!"Zookeeper".equals(getRole())) {
+                    if (!"Employee".equals(getRole())) {
                         System.out.println("Role không hợp lệ.");
                         continue;
                     }

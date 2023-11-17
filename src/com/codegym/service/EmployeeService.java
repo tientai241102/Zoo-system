@@ -9,11 +9,11 @@ import com.codegym.repository.EmployeeRepository;
 import java.sql.Date;
 import java.util.List;
 
-public class EmployeeService extends BaseService{
+public class EmployeeService extends BaseService {
 
     private static EmployeeService employeeService;
 
-    private EmployeeRepository employeeRepository =  EmployeeRepository.getEmployeeRepository();
+    private EmployeeRepository employeeRepository = EmployeeRepository.getEmployeeRepository();
 
     private HistoryTransactionService historyTransactionService = HistoryTransactionService.getHistoryTransactionService();
 
@@ -21,38 +21,41 @@ public class EmployeeService extends BaseService{
 
     }
 
-    public static EmployeeService getEmployeeService(){
-        if (employeeService == null){
+    public static EmployeeService getEmployeeService() {
+        if (employeeService == null) {
             employeeService = new EmployeeService();
         }
         return employeeService;
     }
 
-    public void payWage(){
-        getEmployees().stream().forEach(x->{
-            if (!x.getRole().equals("Owner"))
-            historyTransactionService.addHistoryTransaction(new HistoryTransaction( genId(),x.getEmployeeId(), HistoryType.PAY_WAGE,x.getSalary(),new Date(System.currentTimeMillis())));
+    public void payWage() {
+        getEmployees().stream().forEach(x -> {
+            if (!x.getRole().equals("Owner")) {
+                historyTransactionService.addHistoryTransaction(new HistoryTransaction(genId(), x.getEmployeeId(), HistoryType.PAY_WAGE, x.getSalary(), new Date(System.currentTimeMillis())));
+                x.setTotalMoney(x.getTotalMoney()+ x.getSalary());
+            }
         });
+        employeeRepository.updateFileCSV();
         System.out.println("Thành Công");
     }
 
 
-
-
-    public List<Employee> getEmployees(){
+    public List<Employee> getEmployees() {
         return employeeRepository.getAllEmployees();
     }
 
-    public Employee findById(String employeeId){
+    public Employee findById(String employeeId) {
         return employeeRepository.findEmployeeById(employeeId);
     }
-    public  List<Employee> findByName(String employeeName){
+
+    public List<Employee> findByName(String employeeName) {
         return employeeRepository.findEmployeesByName(employeeName);
     }
 
     public void addEmployee(Employee employee) {
         employeeRepository.addEmployee(employee);
     }
+
     public void updateEmployee(Employee employee) {
         employeeRepository.updateEmployee(employee);
     }

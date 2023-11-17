@@ -354,16 +354,16 @@ public class OwnerFunction implements MainFunction {
 
         switch (inputAnimalSelected) {
             case 1:
-                employee = new Employee(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, "Employee", username, password);
+                employee = new Employee(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, "Employee", username, password,0);
                 break;
             case 2:
-                employee = new Accountant(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password);
+                employee = new Accountant(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password,0);
                 break;
             case 3:
                 employee = new Owner(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password, 0);
                 break;
             case 4:
-                employee = new Supplier(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password);
+                employee = new Supplier(name, streetAddress, city, country, gender, age, employeeId, jobPosition, salary, username, password,0);
                 break;
         }
         return employee;
